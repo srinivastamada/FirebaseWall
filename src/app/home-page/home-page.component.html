@@ -1,0 +1,34 @@
+<div class="homemodal-container">
+  <div class="row">
+    <div>
+      <h1>
+        Welcome {{userData.displayName}} 
+      </h1>
+      <h2>{{userData.email}}</h2>
+      <img src="{{userData.photoURL}}" class="profilePic"/>
+
+      <div class="bs-example" id="messages">
+        
+        <!-- Point: 1 -->
+        <div *ngFor="let message of messages | async">
+          
+          <!-- Point: 2 -->
+          <div class="bubble" >
+            <p>{{ message.message }}</p>
+            <div class="author">
+              {{ message.displayName }} | {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="highlight">
+        
+        <!-- Point: 3 -->
+        <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+        <a class="send-message" (click)="sendMessage()">SEND</a>
+        
+      </figure>
+
+    </div>
+  </div>
+</div>
