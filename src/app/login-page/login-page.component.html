@@ -1,17 +1,19 @@
-<div class="modal-dialog">
-  <div class="loginmodal-container">
-    <h1>Login to Your Social Account</h1><br>
-    <button md-raised-button class='google' (click)="socialLogin('google')">
-      <i class="fa fa-google" aria-hidden="true"></i> Login With Google</button>
-
-     <button md-raised-button class="github" (click)="socialLogin('github')">
-      <i class="fa fa-github" aria-hidden="true"></i> Login With Github</button>
-
-      <button md-raised-button color="primary" (click)="socialLogin('twitter')">
-      <i class="fa fa-twitter" aria-hidden="true"></i> Login With Twitter</button>
-
-       <button md-raised-button class="facebook" (click)="socialLogin('facebook')">
-      <i class="fa fa-facebook" aria-hidden="true"></i> Login With Facebook</button>
-     
+<div class="overview section" id="overview">
+  <h1>
+    Angular <span>Firebase</span> Wall System
+  </h1>
+  <h3>SRINIVAS TAMADA PRODUCTION</h3>
+  <div id="bigButtons">
+  </div>
+  <div>
+    <a class="btn  btn-social btn-facebook" (click)="socialLogin('facebook')" href="#">
+      <span class="fa fa-facebook"></span> Sign in with Facebook
+    </a>
+    <a class="btn  btn-social btn-google" (click)="socialLogin('google')" href="#" >
+      <span class="fa fa-google"></span> Sign in with Google
+    </a>
+    <a class="btn  btn-social btn-github" (click)="socialLogin('github')" href="#">
+      <span class="fa fa-github"></span> Sign in with Github
+    </a>
   </div>
 </div>

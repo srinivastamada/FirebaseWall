@@ -1,26 +1,40 @@
-<md-toolbar color="primary">
-  <span> 9lessons Firebase Social Login Project</span>
-  <span class="spacer"></span>
-  <div *ngIf="isLoggedIn">
-    <a (click)="logout()">Logout</a>
-  </div>
-</md-toolbar>
-<div class="app-content">
-  <md-card>
-    <div >
+<!--
+
       <ng2-adsense></ng2-adsense>
+
+-->
+
+<div class="header">
+    <div class="brandTop">
+      <a href="/" id="logo">afb Wall</a>
     </div>
-  </md-card>
-  <md-card>
-    <div class="app-content">
-      <router-outlet></router-outlet>
+    <div class="nav" role="navigation">
+      <span class="brand " id="topButtons"><a href="http://oauth.9lessons.info" target="_blank" class="wallbutton" style="margin-right:10px">Live Demo</a><a class="wallbutton" href="index.html#download">Download</a></span>
+      <ul class="sitemap">
+        <li *ngIf="isLoggedIn">
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
     </div>
-  </md-card>
-</div>
-<footer>
-  <md-toolbar class="md-scroll-shrink">
-    <div layout="row" layout-align="center center" flex>
-      Srinivas Tamada Production
-    </div>
-  </md-toolbar>
-</footer>
+  </div>
+  <div class="main" role="main">
+
+<router-outlet></router-outlet>
+  </div>
+  <div class="footer" role="contentinfo" id="footer">
+    <ul class="about">
+      <li>
+        © COPYRIGHT - <a href="http://www.9lessons.info" target="_blank">SRINIVAS TAMADA PRODUCTION</a> - MADE IN INDIA -
+        MADE WITH <i class="fa fa-heart" aria-hidden="true"></i>
+      </li>
+      <li>
+        <a href="http://www.9lessons.info">www.9lessons.info</a>
+      </li>
+      <li>
+        <a href="terms">Terms</a>
+      </li>
+      <li>
+        <a href="mailto:srinivas@9lessons.info">Questions</a>
+      </li>
+    </ul>
+  </div>
