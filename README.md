@@ -1,4 +1,4 @@
-# 9lessons Angular Cli Firebase Social Login
+# 9lessons Angular Cli Firebase Wall System with Social Login
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
