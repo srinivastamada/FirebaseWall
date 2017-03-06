@@ -19,3 +19,35 @@
   <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
   <a class="send-message" (click)="sendMessage()">SEND</a>
 </figure>-->
+<div id="home">
+  <h1>
+    Welcome {{userData.displayName}}
+  </h1>
+  <div class="leftBlock">
+    <div class="leftBlock">
+      <textarea type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"></textarea>
+    </div>
+    <div class="rightBlock">
+      <button class="btn" (click)="sendMessage()">SEND</button>
+    </div>
+    <div class='clear'>
+
+      <div class="stbody clear" *ngFor="let message of messages | async ">
+        <div class="stimg">
+          <img src="{{message.photoURL}}" />
+        </div>
+        <div class="sttext">
+          <strong> {{ message.displayName }} </strong>
+        {{ message.message }}
+          <div class="sttime">{{ message.timestamp | date:"MM/dd/yy hh:mm a" }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--<div class="rightBlock loginUsers">
+    <span *ngFor="let user of loginUsers | async ">
+       <img src="{{user.photoURL}}" />
+      </span>
+  </div>-->
+</div>

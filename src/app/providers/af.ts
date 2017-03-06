@@ -4,11 +4,13 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 
 export class AF {
   public messages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
+  // public users: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;
-  constructor(public af: AngularFire) { 
+  constructor(public af: AngularFire) {
 
-     this.messages = this.af.database.list('messages');
+    this.messages = this.af.database.list('messages');
+    this.users = this.af.database.list('users');
   }
   /**
    * Logs in the user
@@ -40,15 +42,42 @@ export class AF {
 
     return this.af.auth.logout();
   }
-  sendMessage(text,userData) {
-    console.log("User Data ...");
-    console.log(userData.email);
+  sendMessage(text, userData) {
+
     var message = {
       message: text,
       displayName: userData.displayName,
       email: userData.email,
+      photoURL: userData.photoURL,
       timestamp: Date.now()
     };
     this.messages.push(message);
   }
+
+  userLogin(userData) {
+    var user = {
+      displayName: userData.displayName,
+      email: userData.email,
+      photoURL: userData.photoURL,
+      timestamp: Date.now()
+    };
+    this.users.push(user);
+  }
+
+  saveUserInfoFromForm(userData) {
+    return this.af.database.object('registeredUsers/' + userData.uid).set({
+      name: userData.displayName,
+      email: userData.email,
+      photoURL: userData.photoURL
+    });
+  }
+
+
+  registerUser(userData) {
+    return this.af.auth.createUser({
+      email: userData.email,
+      password: 'xxxxxxxxxxxx',
+    });
+  }
+
 }

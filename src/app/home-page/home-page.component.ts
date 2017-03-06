@@ -10,11 +10,12 @@ export class HomePageComponent implements OnInit {
   userData: any;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
+  public error: any;
+
 
   constructor(public afService: AF) {
     this.messages = this.afService.messages;
-
-
+  //  this.loginUsers = this.afService.users;
     this.user();
 
   }
@@ -27,8 +28,8 @@ export class HomePageComponent implements OnInit {
     if (localStorage.getItem('userData')) {
 
       this.userData = JSON.parse(localStorage.getItem('userData'));
-
       console.log(this.userData);
+    //  this.register();
     }
     else {
       console.log("No Data");
@@ -36,9 +37,26 @@ export class HomePageComponent implements OnInit {
 
   }
 
-  sendMessage(){
+  sendMessage() {
     this.afService.sendMessage(this.newMessage, this.userData);
     this.newMessage = '';
   }
 
+
+  register() {
+    this.afService.registerUser(this.userData).then((user) => {
+      console.log("asdfasdfsadfsadfsadf");
+      console.log(user);
+      this.afService.saveUserInfoFromForm(this.userData).then(() => {
+       // this.router.navigate(['']);
+      })
+        .catch((error) => {
+          this.error = error;
+        });
+    })
+      .catch((error) => {
+        this.error = error;
+        console.log(this.error);
+      });
+  }
 }
