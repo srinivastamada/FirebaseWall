@@ -10,17 +10,27 @@ export class HomePageComponent implements OnInit {
   userData: any;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
+  public finalMessages: any;
   public error: any;
 
 
   constructor(public afService: AF) {
-    this.messages = this.afService.messages;
-  //  this.loginUsers = this.afService.users;
+    this.finalMessages = this.afService.messages.map( (arr) => { return arr; } );;
+ 
     this.user();
+  
 
   }
 
   ngOnInit() {
+  }
+
+   getPost() {
+    return this.messages.map(posts => {
+      console.log("posts");
+      console.log(posts);
+      return posts.reverse();
+    });
   }
 
   user() {
@@ -28,13 +38,18 @@ export class HomePageComponent implements OnInit {
     if (localStorage.getItem('userData')) {
 
       this.userData = JSON.parse(localStorage.getItem('userData'));
-      console.log(this.userData);
+     
     //  this.register();
     }
     else {
       console.log("No Data");
     }
 
+  }
+
+  removeMessage(key) {
+    console.log( key);
+    this.afService.removeMessage(key);
   }
 
   sendMessage() {
