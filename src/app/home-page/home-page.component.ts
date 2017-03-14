@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
 
 
   constructor(public afService: AF) {
-    this.finalMessages = this.afService.messages.map( (arr) => { return arr; } );;
+    this.finalMessages = this.afService.messages.map( (arr) => { return arr.reverse(); } ) as FirebaseListObservable<any[]>;
  
     this.user();
   
@@ -27,8 +27,7 @@ export class HomePageComponent implements OnInit {
 
    getPost() {
     return this.messages.map(posts => {
-      console.log("posts");
-      console.log(posts);
+      
       return posts.reverse();
     });
   }

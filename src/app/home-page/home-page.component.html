@@ -32,12 +32,12 @@
     </div>
     <div class='clear'>
 
-      <div class="stbody clear" *ngFor="let message of finalMessages | async ">
+      <div class="stbody clear" *ngFor="let message of finalMessages | async  ">
         <div class="stimg">
           <img src="{{message.photoURL}}" />
         </div>
         <div class="sttext">
-          <span (click)='removeMessage(message)'>X</span>
+          <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete">X</a>
           <strong> {{ message.displayName }} </strong>
         {{ message.message }}
           <div class="sttime">{{ message.timestamp | date:"MM/dd/yy hh:mm a" }}</div>

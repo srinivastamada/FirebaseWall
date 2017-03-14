@@ -1,8 +1,9 @@
+import { OrderBySelection } from 'angularfire2/interfaces';
 import { Injectable } from "@angular/core";
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class AF {
-  public messages: FirebaseListObservable<any[]>;
+  public messages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
   // public users: FirebaseListObservable<any>;
   public displayName: string;
@@ -12,7 +13,8 @@ export class AF {
 
     this.messages = this.af.database.list('messages',  {
       query: {
-        orderByChild: 'timestamp'
+        orderByChild: 'timestamp',
+        limitToLast: 24
       }
     });
     this.users = this.af.database.list('users');
@@ -59,7 +61,12 @@ export class AF {
         photoURL: userData.photoURL,
         timestamp: Date.now()
       };
+
+      console.log("this.messages");
+      console.log(this.messages);
+      //this.messages.push(message);
       this.messages.push(message);
+      
     }
 
     userLogin(userData) {
@@ -67,7 +74,7 @@ export class AF {
         displayName: userData.displayName,
         email: userData.email,
         photoURL: userData.photoURL,
-        timestamp: Date.now()
+        timestamp: firebase.database.ServerValue.TIMESTAMP
       };
       this.users.push(user);
     }
