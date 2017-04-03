@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "angularfirebase-884d4"
+    "default": "angularfirebase-884d4",
+    "hosting": "chat-e9764"
   }
 }
