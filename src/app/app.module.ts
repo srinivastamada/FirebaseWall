@@ -6,7 +6,7 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {AppComponent} from './app.component';
 import {AngularFireModule} from 'angularfire2';
-
+import { LinkyModule } from 'angular-linky';
 import {AF} from "./providers/af";
 import {LoginPageComponent} from './login-page/login-page.component';
 import {HomePageComponent} from './home-page/home-page.component';
@@ -42,7 +42,7 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
     AdsenseModule.forRoot({adClient: 'ca-pub-6904774409601870', adSlot: 4242245788}),
-    MomentModule
+    MomentModule, LinkyModule
   ],
   bootstrap: [AppComponent]
 })

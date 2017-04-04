@@ -3,16 +3,20 @@
 
     <div class="leftBlock" #scrollMe>
 
-      <div class='clear'>
+      <div class='clear' id="updates">
 
         <div class="stbody clear" *ngFor="let message of finalMessages | async  ">
           <div class="stimg">
-            <div class="bar"></div>
+           
             <img src="{{message.photoURL}}" />
           </div>
           <div class="sttext">
-            <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-            <strong> {{ message.displayName }} </strong> {{ message.message }}
+            <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete" *ngIf="message.displayName === userData.displayName" >
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+            <strong> {{ message.displayName }} </strong> 
+            <div [innerHTML]="wordFilter(message.message) | linky"></div>
+          
             <div class="sttime">{{ message.timestamp | amTimeAgo }}
             </div>
 
@@ -22,7 +26,7 @@
       </div>
     </div>
     <div class="rightBlock loginUsers">
-      <div class="logo">AF</div>
+      <div class="logo"><span class="A">A</span><span class="F">F</span></div>
       <b>
     Welcome <br/>{{userData.displayName}}
   </b>
@@ -30,12 +34,15 @@
       <!--<span *ngFor="let user of loginUsers | async ">
        <img src="{{user.photoURL}}" />
       </span>-->
+
+
+      <div style="margin-top:300px"><img src="https://lh3.googleusercontent.com/-q7nP4lSJ4tg/Vim1CZJDWvI/AAAAAAAANIU/vE0RZ8-9rCE/s599-Ic42/9lessonsLogo.png"></div>
     </div>
   </div>
 </div>
 <div class="footer" role="contentinfo" id="footer">
   <div class="sendBox">
-    <input class="newTextarea" placeholder="Start chatting here" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" />
+    <input class="newTextarea" placeholder="Start typing here..." [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" />
     <button class="newSend" (click)="sendMessage()"><i class="fa fa-paper-plane" aria-hidden="true"></i> SEND</button>
 
   </div>

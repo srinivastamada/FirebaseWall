@@ -43,7 +43,7 @@ input:focus {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
      padding:9px 10px 9px 10px;margin-left:-5px;
-     color:#fff;
+     color:#fff; font-weight: bold;
      i{color:#fff}
   }
 
@@ -51,33 +51,36 @@ input:focus {
 
 #home {
   text-align: left;
-  
-  
-  .loginUsers{
-      img{
-          width: 35px;
-          height: 35px;
-          
-      }
+
+  #updates:before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 1px;
+    background: #ccc;
+    margin-left: 29px;
   }
   .leftBlock {
     float: left;
     width: 75%;
     margin-bottom:100px;
-    height: 500px;
-    overflow: scroll;
+    height: 550px;
+   overflow: auto;
     overflow-x: hidden;
+    
   }
   .rightBlock {
     float: right;
     width: 24%;
     text-align: right;
     .logout{
-     display:block
+     display:block; color:#006699
     }
     .logo{
       font-size: 70px;
       font-weight: bold;
+      
     }
   }
   textarea {
@@ -91,26 +94,20 @@ input:focus {
   }
     .stbody:hover{
       background: #f2f2f2;
+      border-radius: 5px
     }
   .stbody {
     min-height: 70px;
     margin-bottom: 10px;
     padding:5px;
     
+    strong{display: block; font-size:14px}
     .stimg {
       float: left;
       height: 50px;
       width: 50px;
       position: relative;
-      .bar{
-         position: absolute;
-    background: #ccc;
-    width: 2px;
-    height: 33px;
-    margin-top: 50px;
-    margin-left: 24px;
-
-      }
+  
       img{
       border-radius: 50%;
       }
@@ -131,9 +128,12 @@ input:focus {
       overflow: hidden;
       padding: 5px;
       display: block;
+      font-size:14px;
       .sttime{
-        color:#999999
+        color:#999999;
+        font-size:12px;
       }
+      a{color:#006699}
       
     }
   
@@ -141,4 +141,21 @@ input:focus {
       float:right;
     }
   }
+}
+
+@media screen and (max-width:680px) {
+.leftBlock{
+  width: 100% !important
+}
+.rightBlock{
+  display: none
+}
+
+.newTextarea{
+  width:75% !important;
+}
+.newSend{
+  width:24% !important;
+}
+
 }
