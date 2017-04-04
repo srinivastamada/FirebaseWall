@@ -14,7 +14,7 @@ export class AF {
     this.messages = this.af.database.list('messages',  {
       query: {
         orderByChild: 'timestamp',
-        limitToLast: 24
+        limitToLast: 40
       }
     });
     this.users = this.af.database.list('users');
