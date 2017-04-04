@@ -1,54 +1,54 @@
-<!--<h1>
-  Welcome {{userData.displayName}}
-</h1>
-<h2>{{userData.email}}</h2>
-<img src="{{userData.photoURL}}" class="profilePic" />
-<div class="bs-example" id="messages">
+<div class="main" role="main" id="main">
+  <div id="home">
 
-  <div *ngFor="let message of messages | async">
-    <div class="bubble">
-      <p>{{ message.message }}</p>
-      <div class="author">
-        {{ message.displayName }} | {{ message.timestamp | date:"MM/dd/yy hh:mm a" }}
+    <div class="leftBlock" #scrollMe>
+
+      <div class='clear'>
+
+        <div class="stbody clear" *ngFor="let message of finalMessages | async  ">
+          <div class="stimg">
+            <div class="bar"></div>
+            <img src="{{message.photoURL}}" />
+          </div>
+          <div class="sttext">
+            <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            <strong> {{ message.displayName }} </strong> {{ message.message }}
+            <div class="sttime">{{ message.timestamp | amTimeAgo }}
+            </div>
+
+          </div>
+        </div>
+
       </div>
+    </div>
+    <div class="rightBlock loginUsers">
+      <div class="logo">AF</div>
+      <b>
+    Welcome <br/>{{userData.displayName}}
+  </b>
+      <a href="#logout" (click)="logout()" class="logout">Logout</a>
+      <!--<span *ngFor="let user of loginUsers | async ">
+       <img src="{{user.photoURL}}" />
+      </span>-->
     </div>
   </div>
 </div>
-<figure class="highlight">
- 
-  <input type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
-  <a class="send-message" (click)="sendMessage()">SEND</a>
-</figure>-->
-<div id="home">
-  <h1>
-    Welcome {{userData.displayName}}
-  </h1>
-  <div class="leftBlock">
-    <div class="leftBlock">
-      <textarea type="textarea" class="message-text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"></textarea>
-    </div>
-    <div class="rightBlock">
-      <button class="btn" (click)="sendMessage()">SEND</button>
-    </div>
-    <div class='clear'>
+<div class="footer" role="contentinfo" id="footer">
+  <div class="sendBox">
+    <input class="newTextarea" placeholder="Start chatting here" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" />
+    <button class="newSend" (click)="sendMessage()"><i class="fa fa-paper-plane" aria-hidden="true"></i> SEND</button>
 
-      <div class="stbody clear" *ngFor="let message of finalMessages | async  ">
-        <div class="stimg">
-          <img src="{{message.photoURL}}" />
-        </div>
-        <div class="sttext">
-          <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete">X</a>
-          <strong> {{ message.displayName }} </strong>
-        {{ message.message }}
-          <div class="sttime">{{ message.timestamp | date:"MM/dd/yy hh:mm a" }}</div>
-        </div>
-      </div>
-
-    </div>
   </div>
-  <!--<div class="rightBlock loginUsers">
-    <span *ngFor="let user of loginUsers | async ">
-       <img src="{{user.photoURL}}" />
-      </span>
-  </div>-->
+  <!--<ul class="about">
+      <li>
+        © COPYRIGHT - <a href="http://www.9lessons.info" target="_blank">SRINIVAS TAMADA PRODUCTION</a> - MADE IN INDIA -
+        MADE WITH <i class="fa fa-heart" aria-hidden="true"></i>
+      </li>
+      <li>
+        <a href="http://www.9lessons.info">www.9lessons.info</a>
+      </li>
+      <li>
+        <a href="terms">Terms</a>
+      </li>
+    </ul>-->
 </div>

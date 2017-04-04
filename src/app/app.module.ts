@@ -11,6 +11,8 @@ import {AF} from "./providers/af";
 import {LoginPageComponent} from './login-page/login-page.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {AdsenseModule} from 'ng2-adsense';
+import {MomentModule} from 'angular2-moment';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyAEb6AiYN8k1gKeRNSjGHCTfx7jJwS4kNY",
   authDomain: "chat-e9764.firebaseapp.com",
@@ -39,7 +41,8 @@ const routes : Routes = [
     BrowserModule, FormsModule, HttpModule, AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
     MaterialModule.forRoot(),
-    AdsenseModule.forRoot({adClient: 'ca-pub-6904774409601870', adSlot: 4242245788})
+    AdsenseModule.forRoot({adClient: 'ca-pub-6904774409601870', adSlot: 4242245788}),
+    MomentModule
   ],
   bootstrap: [AppComponent]
 })
