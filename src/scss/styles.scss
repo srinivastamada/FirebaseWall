@@ -143,6 +143,8 @@ input:focus {
   }
 }
 
+#footerLogout{display:none}
+
 @media screen and (max-width:680px) {
 .leftBlock{
   width: 100% !important
@@ -150,12 +152,15 @@ input:focus {
 .rightBlock{
   display: none
 }
-
+#overview{width:100%}
+.btn{
+  margin-bottom:10px
+}
 .newTextarea{
   width:65% !important;
 }
 .newSend{
   width:34% !important;
 }
-
+#footerLogout{display:block !important}
 }
