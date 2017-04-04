@@ -1,58 +1,68 @@
 @import "default";
 @import "bootstrap-social";
-#overview{
+#overview {
   width: 850px;
-  margin:0 auto;
+  margin: 0 auto;
 }
+
 #footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
   z-index: 999;
-  .sendBox{
-    margin-top:10px;
-    margin-bottom:10px
+  .sendBox {
+    margin-top: 10px;
+    margin-bottom: 10px
   }
-  .newTextarea{
+  .newTextarea {
     border: solid 1px #fff;
-    background:#27c79a;
+    background: #27c79a;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    padding:8px;width: 650px;
-    color:#fff;
-    
+    padding: 8px;
+    width: 650px;
+    color: #fff;
   }
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #fff;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #fff;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #fff;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #fff;
-}
-input:focus {
-    outline:none;
-}
-  .newSend{
-   border: solid 1px #fff;
-   background:#27c79a;
+   ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #fff;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #fff;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+  }
+  input:focus {
+    outline: none;
+  }
+  .newSend {
+    border: solid 1px #fff;
+    background: #27c79a;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-     padding:9px 10px 9px 10px;margin-left:-5px;
-     color:#fff; font-weight: bold;
-     i{color:#fff}
+    padding: 9px 10px 9px 10px;
+    margin-left: -5px;
+    color: #fff;
+    font-weight: bold;
+    i {
+      color: #fff
+    }
+    button:focus {
+      outline: none;
+    }
   }
-
 }
 
 #home {
   text-align: left;
-
-  #updates:before{
+  #updates:before {
     content: '';
     position: absolute;
     top: 0px;
@@ -64,62 +74,59 @@ input:focus {
   .leftBlock {
     float: left;
     width: 75%;
-    margin-bottom:100px;
+    margin-bottom: 100px;
     height: 550px;
-   overflow: auto;
+    overflow: auto;
     overflow-x: hidden;
-    
   }
   .rightBlock {
     float: right;
     width: 24%;
     text-align: right;
-    .logout{
-     display:block; color:#006699
+    .logout {
+      display: block;
+      color: #006699
     }
-    .logo{
+    .logo {
       font-size: 70px;
       font-weight: bold;
-      
     }
   }
   textarea {
     display: block;
     width: 100%;
-     margin-bottom:10px;
+    margin-bottom: 10px;
   }
   .clear {
     clear: both;
-    margin-top:10px;
+    margin-top: 10px;
   }
-    .stbody:hover{
-      background: #f2f2f2;
-      border-radius: 5px
-    }
+  .stbody:hover {
+    background: #f2f2f2;
+    border-radius: 5px
+  }
   .stbody {
     min-height: 70px;
     margin-bottom: 10px;
-    padding:5px;
-    
-    strong{display: block; font-size:14px}
+    padding: 5px;
+    strong {
+      display: block;
+      font-size: 14px
+    }
     .stimg {
       float: left;
       height: 50px;
       width: 50px;
       position: relative;
-  
-      img{
-      border-radius: 50%;
+      img {
+        border-radius: 50%;
       }
-      .stimg:before{
+      .stimg:before {
         position: absolute;
-        background:#999;
+        background: #999;
         width: 4px;
         height: 20px;
       }
-      
-      
-      
     }
     .sttext {
       margin-left: 70px;
@@ -128,39 +135,45 @@ input:focus {
       overflow: hidden;
       padding: 5px;
       display: block;
-      font-size:14px;
-      .sttime{
-        color:#999999;
-        font-size:12px;
+      font-size: 14px;
+      .sttime {
+        color: #999999;
+        font-size: 12px;
       }
-      a{color:#006699}
-      
+      a {
+        color: #006699
+      }
     }
-  
-    .stdelete{
-      float:right;
+    .stdelete {
+      float: right;
     }
   }
 }
 
-#footerLogout{display:none}
-
-@media screen and (max-width:680px) {
-.leftBlock{
-  width: 100% !important
-}
-.rightBlock{
+#footerLogout {
   display: none
 }
-#overview{width:100%}
-.btn{
-  margin-bottom:10px
-}
-.newTextarea{
-  width:65% !important;
-}
-.newSend{
-  width:34% !important;
-}
-#footerLogout{display:block !important}
+
+@media screen and (max-width:680px) {
+  .leftBlock {
+    width: 100% !important
+  }
+  .rightBlock {
+    display: none
+  }
+  #overview {
+    width: 100%
+  }
+  .btn {
+    margin-bottom: 10px
+  }
+  .newTextarea {
+    width: 65% !important;
+  }
+  .newSend {
+    width: 34% !important;
+  }
+  #footerLogout {
+    display: block !important
+  }
 }
