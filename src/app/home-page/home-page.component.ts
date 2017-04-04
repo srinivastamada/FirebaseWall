@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit {
       .afService
       .messages
       .map((arr) => {
+       setTimeout(() => this.scrollToBottom(), 100);
         return arr;
       })as FirebaseListObservable < any[] >;
 
