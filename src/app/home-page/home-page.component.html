@@ -11,7 +11,7 @@
             <img src="{{message.photoURL}}" />
           </div>
           <div class="sttext">
-            <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete" *ngIf="message.displayName === userData.displayName" >
+            <a href="home#{{message.timestamp}}" (click)='removeMessage(message)' title="Delete" class="stdelete" *ngIf="message.email === userData.email" >
               <i class="fa fa-trash-o" aria-hidden="true"></i>
             </a>
             <strong> {{ message.displayName }} </strong> 

@@ -27,15 +27,15 @@
     /* Chrome/Opera/Safari */
     color: #fff;
   }
-  ::-moz-placeholder {
+   ::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff;
   }
-  :-ms-input-placeholder {
+   :-ms-input-placeholder {
     /* IE 10+ */
     color: #fff;
   }
-  :-moz-placeholder {
+   :-moz-placeholder {
     /* Firefox 18- */
     color: #fff;
   }
@@ -120,6 +120,8 @@
       position: relative;
       img {
         border-radius: 50%;
+        height: 50px;
+        width: 50px;
       }
       .stimg:before {
         position: absolute;
